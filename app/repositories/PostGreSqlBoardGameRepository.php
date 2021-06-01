@@ -25,8 +25,8 @@ class PostGreSqlBoardGameRepository implements BoardGameRepositoryInterface
         $variables = implode(', ', array_fill(0, count($data), '?'));
 
         $stmt = $this->connection->prepare("INSERT INTO {$this->table} ({$columns}) VALUES ({$variables})");
-        for ($index = 1; $index <= count($data); $index++) {
-            $stmt->bindValue($index, $data[$index]);
+        for ($index = 0; $index < count($data); $index++) {
+            $stmt->bindValue($index + 1, $data[$index]);
         }
 
         return $stmt->executeStatement();
