@@ -16,7 +16,7 @@ class BoardGameService
 
     public function create(BoardGame $boardGame): int
     {
-        return $this->boardGameRepository->create($boardGame->toSanitizedArray());
+        return $this->boardGameRepository->create(array_filter($boardGame->toSanitizedArray()));
     }
 
     public function read(): array
@@ -31,7 +31,7 @@ class BoardGameService
 
     public function update(int $id, BoardGame $boardGame): int
     {
-        return $this->boardGameRepository->update($id, $boardGame->toSanitizedArray());
+        return $this->boardGameRepository->update($id, array_filter($boardGame->toSanitizedArray()));
     }
 
     public function delete(int $id)
