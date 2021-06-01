@@ -21,13 +21,12 @@ class PostGreSqlBoardGameRepository implements BoardGameRepositoryInterface
      */
     public function create(array $data): int
     {
-        $setParams = array_map(function ($column) {
-            return "{$column} = :{$column}";
-        }, array_keys($data));
+        $columns = implode(', ', array_keys($data));
+        $variables = implode(', ', array_fill(0, count($data) - 1, '?'));
 
-        $stmt = $this->connection->prepare("INSERT INTO {$this->table} SET " . implode(', ', $setParams));
-        foreach ($data as $param => $value) {
-            $stmt->bindValue($param, $value);
+        $stmt = $this->connection->prepare("INSERT INTO {$this->table} ({$columns}) VALUES ({$variables})");
+        for ($index = 1; $index > count($data); $index++) {
+            $stmt->bindValue($index, $data[$index]);
         }
 
         return $stmt->executeStatement();
