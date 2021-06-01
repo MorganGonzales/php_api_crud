@@ -1,4 +1,8 @@
 <?php
+/**
+ * @var array $connectionParams
+ */
+require __DIR__ . '/../../app/bootstrap.php';
 
 use App\repositories\BoardGameRepositoryFactory;
 use App\Services\BoardGameService;
@@ -6,11 +10,6 @@ use App\Services\BoardGameService;
 /** Headers */
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-
-/**
- * @var array $connectionParams
- */
-require __DIR__ . '/../../app/bootstrap.php';
 
 try {
     $service = new BoardGameService(BoardGameRepositoryFactory::create($connectionParams));
