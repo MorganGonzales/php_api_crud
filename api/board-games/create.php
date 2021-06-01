@@ -2,7 +2,7 @@
 
 use App\BoardGame;
 use App\repositories\BoardGameRepositoryFactory;
-use App\Services\BoardGameService;
+use App\services\BoardGameService;
 
 /** Headers */
 header('Access-Control-Allow-Origin: *');
