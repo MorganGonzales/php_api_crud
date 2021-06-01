@@ -23,10 +23,11 @@ class PostGreSqlBoardGameRepository implements BoardGameRepositoryInterface
     {
         $columns = implode(', ', array_keys($data));
         $variables = implode(', ', array_fill(0, count($data), '?'));
+        $values = array_values($data);
 
         $stmt = $this->connection->prepare("INSERT INTO {$this->table} ({$columns}) VALUES ({$variables})");
-        for ($index = 0; $index < count($data); $index++) {
-            $stmt->bindValue($index + 1, $data[$index]);
+        for ($index = 0; $index < count($values); $index++) {
+            $stmt->bindValue($index + 1, $values[$index]);
         }
 
         return $stmt->executeStatement();
