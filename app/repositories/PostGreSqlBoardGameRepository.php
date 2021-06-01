@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\repositories;
 
 use Doctrine\DBAL\Connection;
 
