@@ -22,7 +22,7 @@ Finally, copy `.env-example` as `.env` with the proper database configuration pa
 
 ## API Endpoints
 ### Create
-**URL:** http://your-host/api/board-games/create.php
+**URL:** http://php-api-crud.herokuapp.com/api/board-games/create.php
 **Action:** POST
 **Sample Body:**
 ```json
@@ -37,7 +37,7 @@ Finally, copy `.env-example` as `.env` with the proper database configuration pa
 ```
 
 ### Read
-**URL:** http://your-host/api/board-games/read.php
+**URL:** http://php-api-crud.herokuapp.com/api/board-games/read.php
 **Action:** GET
 
 ### Update
@@ -57,7 +57,7 @@ Finally, copy `.env-example` as `.env` with the proper database configuration pa
 ```
 
 ### Delete
-**URL:** http://your-host/api/board-games/delete.php
+**URL:** http://php-api-crud.herokuapp.com/api/board-games/delete.php
 **Action:** DELETE
 **Sample Body:**
 ```json
@@ -67,7 +67,7 @@ Finally, copy `.env-example` as `.env` with the proper database configuration pa
 ```
 
 ### Search
-**URL:** http://your-host/api/board-games/search.php
+**URL:** http://php-api-crud.herokuapp.com/api/board-games/search.php
 **Action:** POST
 **Sample Body:**
 ```json
